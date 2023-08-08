@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Fluxo de cadastro, onde o usuario possa criar e buscar os usuarios com o postman.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
     

@@ -1,32 +1,5 @@
-require('dotenv').config({path: '.env.local'});
-
-const {DB_USER, DB_PASSWORD, DB_DATABASE, DB_SERVER} = process.env;
 
 
-const sqlConfig = {
-  user: DB_USER,
-  password: DB_PASSWORD,
-  database: DB_DATABASE,
-  server: DB_SERVER,
-  pool: {     //Essas configurações permitem controlar o desempenho e o comportamento do pool de conexões
-    max: 10, // ajustando o número máximo de conexões simultâneas
-    min: 0, //o número mínimo de conexões prontas
-    idleTimeoutMillis: 30000 //e o tempo máximo de ociosidade antes de uma conexão ser fechada.
-  },
-  options: {
-    trustServerCertificate: true,
-    trustedConnection: true, 
-    enableArithAbort: true 
-  }
-};
-
-// Importa a biblioteca mssql para interagir com bancos de dados SQL Server no Node.js
-const sql = require("mssql");
-
-// Estabelece a conexão com o banco de dados
-sql.connect(sqlConfig)
-    .then(conn => createTable(conn))
-    .catch(err => console.log("erro!" + err));
 
 //a criação da tabela(function)
 function createTable(conn){
