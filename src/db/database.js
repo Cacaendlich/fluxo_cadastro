@@ -5,11 +5,11 @@ dotenv.config({path: '../../.env.local'});
 
 const {DB_USER, DB_PASSWORD, DB_DATABASE, DB_SERVER} = process.env;
 
-console.log(DB_USER, DB_PASSWORD, DB_DATABASE, DB_SERVER);
+//  console.log(DB_USER, DB_PASSWORD, DB_DATABASE, DB_SERVER);
 
 const sqlConfig = {
   user: DB_USER,
-  password: DB_DATABASE,
+  password: DB_PASSWORD,
   database: DB_DATABASE,
   server: DB_SERVER,
   pool: {     //Essas configurações permitem controlar o desempenho e o comportamento do pool de conexões
@@ -29,11 +29,11 @@ const sqlConfig = {
 const sql = mssql;
 
 // Estabelece a conexão com o banco de dados
-sql.connect(sqlConfig)
-    .then(conn => console.log('funcionou!'))
-    .catch(err => console.log("erro!" + err));
+// sql.connect(sqlConfig)
+//     .then(conn => console.log('funcionou!'))
+//     .catch(err => console.log("erro!" + err));
 
-// export {
-//     sqlConfig,
-//     sql
-// };
+export {
+    sqlConfig,
+    sql
+};
