@@ -11,7 +11,7 @@ const sqlConfig = {
   user: DB_USER,
   password: DB_PASSWORD,
   database: DB_DATABASE,
-  server: DB_SERVER,
+  server: 'localhost',
   pool: {     //Essas configurações permitem controlar o desempenho e o comportamento do pool de conexões
     max: 10, // ajustando o número máximo de conexões simultâneas
     min: 0, //o número mínimo de conexões prontas
@@ -29,11 +29,7 @@ const sqlConfig = {
 const sql = mssql;
 
 // Estabelece a conexão com o banco de dados
-// sql.connect(sqlConfig)
-//     .then(conn => console.log('funcionou!'))
-//     .catch(err => console.log("erro!" + err));
+sql.connect(sqlConfig)
+    .then(conn => console.log('funcionou!'))
+    .catch(err => console.log("erro!" + err));
 
-export {
-    sqlConfig,
-    sql
-};

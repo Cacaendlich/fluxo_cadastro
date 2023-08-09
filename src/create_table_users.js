@@ -1,14 +1,10 @@
 import { sql, sqlConfig } from "../src/db/database.js";
 
-async function estabilishConnection() {
-    try {
-        await sql.connect(sqlConfig)
-        .then(conn => console.log('funcionou!'))
-    } catch (e) {
-        console.log("erro!" + e);
-    }
-}
-estabilishConnection();
+sql.connect(sqlConfig)
+    .then(conn => console.log('funcionou!'))
+    .catch(err => console.log("erro!" + err));
+
+
 //a criação da tabela(function)
 // function createTable(conn){
  
