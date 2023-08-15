@@ -4,11 +4,11 @@
     await database.sync();
 
     // const novoUsuario = await Usuario.create({
-    //     NOME: 'Ricardo',
-    //     CPF: '11122244455',
-    //     EMAIL: 'ricardo@ricardo.com',
+    //     NOME: 'Helena',
+    //     CPF: '11333244455',
+    //     EMAIL: 'helena@helena.com',
     //     TEL: '21981915682',
-    //     DATA_NASCIMENTO: '1993-06-30 02:00:00',
+    //     DATA_NASCIMENTO: '2013-12-13 13:45:00',
     //     IDADE: 30
     // });
     // console.log(novoUsuario);
