@@ -4,12 +4,12 @@
     await database.sync();
 
     // const novoUsuario = await Usuario.create({
-    //     NOME: 'camila',
-    //     CPF: '11122233355',
-    //     EMAIL: 'camila@camila.com',
-    //     TEL: '21969066303',
-    //     DATA_NASCIMENTO: '1994-06-25 02:00:00',
-    //     IDADE: 29
+    //     NOME: 'Ricardo',
+    //     CPF: '11122244455',
+    //     EMAIL: 'ricardo@ricardo.com',
+    //     TEL: '21981915682',
+    //     DATA_NASCIMENTO: '1993-06-30 02:00:00',
+    //     IDADE: 30
     // });
     // console.log(novoUsuario);
     
