@@ -40,7 +40,7 @@ router.post('/cadastro_usuarios', async (req, res) => {
 
 router.delete('/excluir_usuarios/:id', async (req, res) => {
   try {
-    const userID = parseInt(req.query.id);
+    const userID = parseInt(req.params.id);
     const deletarUsuario = await Usuario.destroy({ where: { ID: userID } });
     if (deletarUsuario === 0) {
       return res.status(404).json({ error: 'Usuário não encontrado.' });
