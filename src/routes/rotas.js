@@ -34,8 +34,23 @@ router.post('/cadastro_usuarios', async (req, res) => {
         
       } catch (error) {
         console.log(error);
-        return res.status(500).json({ error: 'Erro ao buscar usuarios:', error });
+        return res.status(500).json({ error: 'Erro ao buscar usuarios:'});
       }
-  });
+});
+
+router.delete('/excluir_usuarios/:id', async (req, res) => {
+  try {
+    const userID = parseInt(req.query.id);
+    const deletarUsuario = await Usuario.destroy({ where: { ID: userID } });
+    if (deletarUsuario === 0) {
+      return res.status(404).json({ error: 'Usuário não encontrado.' });
+    }
+    return res.status(200).json({ msg: 'Usuário excluído com sucesso.' })
+
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({error: 'Erro ao tentar excluir usuário.'});
+  }
+});
 
 module.exports = router;
