@@ -5,7 +5,7 @@ const Usuario = require('../models/usuarioModel.js');
 
 //Definir rotas
 
-// Rota para buscar todos os Usuarios
+// Rota /buscar_usuarios/:id? (para buscar todos os Usuarios)
 router.get('/buscar_usuarios/:id?', async (req, res) => {
     try {
       const userID = parseInt(req.params.id);
@@ -25,7 +25,7 @@ router.get('/buscar_usuarios/:id?', async (req, res) => {
     }
 });
 
-// Rota para cadastrar os Usuarios
+// Rota /cadastro_usuarios (para cadastrar os Usuarios)
 router.post('/cadastro_usuarios', async (req, res) => {
       try {
         const { NOME, CPF, EMAIL, TEL, DATA_NASCIMENTO, IDADE } = req.body;
@@ -47,7 +47,7 @@ router.post('/cadastro_usuarios', async (req, res) => {
       }
 });
 
-//rota /clientes (rota de excluir cliente)
+//rota /excluir_usuarios/:id (rota de excluir cliente)
 router.delete('/excluir_usuarios/:id', async (req, res) => {
   try {
     const userID = parseInt(req.params.id);
@@ -63,5 +63,10 @@ router.delete('/excluir_usuarios/:id', async (req, res) => {
     return res.status(500).json({error: 'Erro ao tentar excluir usuário.'});
   }
 });
+
+//rota /atualizar_usuarios/:id (rota de editar usuario)
+
+
+
 
 module.exports = router;
