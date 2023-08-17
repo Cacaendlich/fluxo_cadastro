@@ -5,7 +5,7 @@ const app = express();
 const port = 3000; //porta padrão
 
 //roteador de usuarios
-const rotasUsuarios = require('./routes/rotas.js')
+const rotasUsuarios = require('./router/rotas.js')
 
 //modelo de usuario
 const Usuario = require('./models/usuarioModel.js');
