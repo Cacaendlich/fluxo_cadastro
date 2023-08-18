@@ -65,8 +65,25 @@ router.delete('/excluir_usuarios/:id', async (req, res) => {
 });
 
 //rota /atualizar_usuarios/:id (rota de editar usuario)
+router.put('/atualizar_usuarios/:id', async (req, res) => {
+  try {
+    const userID = parseInt(req.params.id);
+    const { NOME, CPF, EMAIL, TEL, DATA_NASCIMENTO, IDADE } = req.body;
+    
+    // Atualizar usuário
+    const atualizacaoUsuario = await Usuario.update({
+      NOME: NOME,
+      EMAIL: EMAIL,
+      TEL: TEL,
+      IDADE: IDADE
+    }, { where : {ID: userID}});
+    return res.status(200).json({mdg : 'Usuario atualizado com sucesso:', atualizacaoUsuario});
 
-
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({error: 'Erro ao tentar atualizar usuário.'});
+  }
+});
 
 
 module.exports = router;
