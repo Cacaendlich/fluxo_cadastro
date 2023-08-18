@@ -68,7 +68,7 @@ router.delete('/excluir_usuarios/:id', async (req, res) => {
 router.put('/atualizar_usuarios/:id', async (req, res) => {
   try {
     const userID = parseInt(req.params.id);
-    const { NOME, CPF, EMAIL, TEL, DATA_NASCIMENTO, IDADE } = req.body;
+    const { NOME, EMAIL, TEL, IDADE } = req.body;
     
     // Atualizar usuário
     const atualizacaoUsuario = await Usuario.update({
@@ -77,7 +77,7 @@ router.put('/atualizar_usuarios/:id', async (req, res) => {
       TEL: TEL,
       IDADE: IDADE
     }, { where : {ID: userID}});
-    return res.status(200).json({mdg : 'Usuario atualizado com sucesso:', atualizacaoUsuario});
+    return res.status(200).json({mdg : 'Usuario atualizado com sucesso.'});
 
   } catch (e) {
     console.log(e);
