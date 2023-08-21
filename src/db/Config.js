@@ -12,4 +12,5 @@ const  sequelize =  new Sequelize(DB_DATABASE, DB_USER, DB_PASSWORD, {
     port: 1433
 });
 
+
 module.exports = sequelize;

@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const database = require('../config/db.js');
+const database = require('../db/Config.js');
 
 // criando o modelo de produto no define a gnete passa o nome nome do produto e o objeto com o schema dele.no schema fazemos o mapeamento das colunas que terma no banco, com as propriedades que terma no objeto local.
 

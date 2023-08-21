@@ -1,5 +1,5 @@
 (async () => {
-    const database = require('../config/db.js');
+    const database = require('./Config.js');
     const Usuario = require('../models/usuarioModel.js');
     await database.sync();
 }) ();
