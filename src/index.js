@@ -5,10 +5,10 @@ const app = express();
 const port = 3000; //porta padrão
 
 //roteador de usuarios
-const rotasUsuarios = require('./src/controllers/userController.js').default
+const rotasUsuarios = require('./controllers/userController.js')
 
 //modelo de usuario
-const Usuario = require('./src/models/usuarioModel.js').default;
+const Usuario = require('./models/usuarioModel.js');
 
 //configurando nossa aplicação (app) Express para usar o body parser para pegar POSTS mais tarde
 app.use(bodyParser.urlencoded({ extended: true }));
