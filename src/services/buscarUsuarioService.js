@@ -1,11 +1,11 @@
-const {UsuarioModel} = require("../models/usuarioModel")
+import UsuarioModel from "../models/usuarioModel";
 
 const buscarUsuariosService = async (userID) => {
     try {
       if(!userID){
         const resultadosBusca = await UsuarioModel.findAll();
       }else{
-        const resultadosBusca = await UsuarioModel.findAll({
+        const resultadosBusca = await Usuario.findAll({
           where : {ID : userID}
         });
       }
@@ -15,5 +15,4 @@ const buscarUsuariosService = async (userID) => {
         throw error;
     }
 };
-
-module.exports = buscarUsuariosService;
+export default buscarUsuariosService;

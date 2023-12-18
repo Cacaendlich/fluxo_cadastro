@@ -1,8 +1,8 @@
-const {UsuarioModel} = require("../models/usuarioModel")
+import UsuarioModel from "../models/usuarioModel";
 
 const atualizarUsuariosService = async (NOME, EMAIL, TEL, IDADE) => {
     try {
-        const atualizacaoUsuario = await UsuarioModel.update({
+        const atualizacaoUsuario = await Usuario.update({
             NOME: NOME,
             EMAIL: EMAIL,
             TEL: TEL,
@@ -17,4 +17,4 @@ const atualizarUsuariosService = async (NOME, EMAIL, TEL, IDADE) => {
         throw error;
     }
 };
-module.exports = atualizarUsuariosService;
+export default atualizarUsuariosService;

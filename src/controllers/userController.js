@@ -1,10 +1,10 @@
 // 1. Importações e Configuração:
-const { Router } = require ('express');
-const { buscarUsuariosService } = require ('../services/buscarUsuarioService.js');
-const {router} = Router();
-const {Usuario} = require ('../models/usuarioModel.js');
-const {cadastrarUsuariosService} = require ('../services/cadastrarUsuarioService.js');
-const {atualizarUsuariosService} = require ('../services/atualizarUsuarioService.js');
+import { Router } from 'express';
+import { default as buscarUsuariosService } from '../services/buscarUsuarioService.js';
+const router = Router();
+import Usuario from '../models/usuarioModel.js';
+import cadastrarUsuariosService from '../services/cadastrarUsuarioService.js';
+import atualizarUsuariosService from '../services/atualizarUsuarioService.js';
 
 //Definir rotas
 
@@ -68,4 +68,4 @@ router.put('/atualizar_usuarios/:id', async (req, res) => {
 });
 
 
-module.exports = router;
+export default router;

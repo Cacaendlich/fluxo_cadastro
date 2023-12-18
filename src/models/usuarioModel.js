@@ -1,5 +1,5 @@
-const { INTEGER, STRING, DATE } = require('sequelize');
-const { define } = require('../db/Config.js');
+import { INTEGER, STRING, DATE } from 'sequelize';
+import { define } from '../db/Config.js';
 
 const usuarioModel = define('Usuarios',{
     ID: {
@@ -36,4 +36,4 @@ const usuarioModel = define('Usuarios',{
 
 usuarioModel.sync();
 
-module.exports = usuarioModel;
+export default usuarioModel;

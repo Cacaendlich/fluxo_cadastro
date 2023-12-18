@@ -1,8 +1,8 @@
-const {UsuarioModel} = require("../models/usuarioModel")
+import UsuarioModel from "../models/usuarioModel";
 
 const cadastrarUsuariosService = async (NOME, CPF, EMAIL, TEL, DATA_NASCIMENTO, IDADE) => {
     try {
-      const novoUsuario = await UsuarioModel.create({
+      const novoUsuario = await Usuario.create({
         NOME,
         CPF,
         EMAIL,
@@ -17,4 +17,4 @@ const cadastrarUsuariosService = async (NOME, CPF, EMAIL, TEL, DATA_NASCIMENTO, 
         throw error;
     }
 };
-module.exports = cadastrarUsuariosService;
+export default cadastrarUsuariosService;
