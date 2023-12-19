@@ -1,7 +1,7 @@
 // 1. Importações e Configuração:
 const express = require('express');
 const router = express.Router();
-const Usuario = require('../models/usuarioModel.js');
+const UsuarioModel = require('../models/usuarioModel.js');
 
 //Definir rotas
 
@@ -11,10 +11,10 @@ router.get('/buscar_usuarios/:id?', async (req, res) => {
       const userID = parseInt(req.params.id);
       
       if(!userID){
-        const usuariosEncontrados = await Usuario.findAll();
+        const usuariosEncontrados = await UsuarioModel.findAll();
         return res.status(200).json(usuariosEncontrados);
       }else{
-        const usuarioEncontrado = await Usuario.findAll({
+        const usuarioEncontrado = await UsuarioModel.findAll({
           where : {ID : userID}
         });
         return res.status(200).json(usuarioEncontrado);
@@ -31,7 +31,7 @@ router.post('/cadastro_usuarios', async (req, res) => {
         const { NOME, CPF, EMAIL, TEL, DATA_NASCIMENTO, IDADE } = req.body;
 
         // Inserir o novo usuário
-        const novoUsuario = await Usuario.create({
+        const novoUsuario = await UsuarioModel.create({
             NOME,
             CPF,
             EMAIL,
@@ -51,7 +51,7 @@ router.post('/cadastro_usuarios', async (req, res) => {
 router.delete('/excluir_usuarios/:id', async (req, res) => {
   try {
     const userID = parseInt(req.params.id);
-    const deletarUsuario = await Usuario.destroy({ where: { ID: userID } });
+    const deletarUsuario = await UsuarioModel.destroy({ where: { ID: userID } });
     if (deletarUsuario === 0) {
       return res.status(404).json({ error: 'Usuário não encontrado.' });
     }
@@ -71,7 +71,7 @@ router.put('/atualizar_usuarios/:id', async (req, res) => {
     const { NOME, EMAIL, TEL, IDADE } = req.body;
     
     // Atualizar usuário
-    const atualizacaoUsuario = await Usuario.update({
+    const atualizacaoUsuario = await UsuarioModel.update({
       NOME: NOME,
       EMAIL: EMAIL,
       TEL: TEL,

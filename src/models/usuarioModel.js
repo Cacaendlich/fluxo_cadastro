@@ -3,7 +3,7 @@ const database = require('../db/Config.js');
 
 // criando o modelo de produto no define a gnete passa o nome nome do produto e o objeto com o schema dele.no schema fazemos o mapeamento das colunas que terma no banco, com as propriedades que terma no objeto local.
 
-const Usuario = database.define('Usuarios',{
+const UsuarioModel = database.define('users',{
     ID: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -36,5 +36,7 @@ const Usuario = database.define('Usuarios',{
     }
 });
 
-module.exports = Usuario;
+UsuarioModel.sync();
+
+module.exports = UsuarioModel;
 // criei o modelo do usuario, a representação local de um objeto de uma tabela que existe no db ou que vai existir.
